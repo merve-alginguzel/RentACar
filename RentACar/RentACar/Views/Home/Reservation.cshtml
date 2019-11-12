@@ -1,0 +1,120 @@
+﻿@model IEnumerable<DataModel.ReservationDM>
+@{
+    ViewBag.Title = "REZERVASYONLAR";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<!-- Page Sidebar -->
+<!-- /page sidebar -->
+<!-- Main container -->
+<div class="main-container">
+
+    <!-- Main header -->
+    <div class="main-header row gray-bg">
+        <div class="col-sm-6 col-xs-7">
+
+            <!-- User info -->
+            <ul class="user-info pull-left">
+                <li class="profile-info dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"> <img width="44" class="img-circle avatar" alt="" src="images/man-3.jpg">Hoşgeldiniz - @Session["UserName"] <span class="caret"></span></a>
+
+                    <!-- User action menu -->
+                    <ul class="dropdown-menu">
+                        <li><a href="@Url.Action("Logout","Home")"><i class="icon-logout"></i>Çıkış Yap</a></li>
+                    </ul>
+                    <!-- /user action menu -->
+
+                </li>
+            </ul>
+            <!-- /user info -->
+
+        </div>
+
+    </div>
+    <!-- /main header -->
+    <!-- /secondary header -->
+    <!-- Main content -->
+    <div class="main-content">
+
+        <div class="animatedParent animateOnce z-index-50">
+            <div class="table-responsive animated fadeInUp">
+                <table class="table table-users table-hover">
+                    <thead>
+                        <tr>
+
+                            <th>REZERVASYON TARİHİ</th>
+                            <th>REZERVASYON SÜRESİ</th>
+                            <th>REZERVASYON BİTİŞ TARİHİ</th>
+                            <th>REZERVASYON TUTARI</th>
+                            <th>İŞLEM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td><strong>@String.Format("{0:dd/MM/yyyy}", item.Date)</strong></td>
+                                <td>@item.Day</td>
+                                <td>@String.Format("{0:dd/MM/yyyy}", item.EndDate)</td>
+                                <td>@item.Amount</td>
+                                <td>
+                                    <a href="@Url.Action("ReservationDetail", "Home")?ID=@item.ID"><button class="btn btn-success" type="button"> <i class="icon-pencil"></i> </button></a>
+
+                                    <a href="@Url.Action("DeleteReservation", "Home")?ID=@item.ID"><button class="btn btn-red" type="button"> <i class="icon-trash"></i> </button></a>
+
+                                </td>
+                            </tr>
+                            
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="animatedParent animateOnce z-index-10">
+            <div class="footer-main animated fadeInUp slow">&copy; 2019 <strong>Rent A Car</strong> </div>
+        </footer>
+        <!-- /footer -->
+
+    </div>
+    <!-- /main content -->
+
+</div>
+<!-- /main container -->
+<!-- /page container -->
+<!--Load JQuery-->
+
+@section scripts{
+
+    <script>
+
+        function Detay(ID) {
+                $.ajax({
+                    type: "post",
+                    url: '@Url.Action("ReservationDetail", "Home")',
+                    data: { ID: ID }
+                });
+        }
+
+       function Sil(ID) {
+                $.ajax({
+                    type: "post",
+                    url: '@Url.Action("DeleteReservation", "Home")',
+                    data: { ID: ID },
+                    success: function (data) {
+                       
+                    }
+                });
+        }
+
+    </script>
+
+
+}
+

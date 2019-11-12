@@ -1,0 +1,510 @@
+﻿
+/**********************************************/
+
+.popover {
+    color: white;
+    background-color: #3c3c3c;
+    line-height:0.5!important;
+    font-size:12px!important;
+}
+
+    .popover .arrow:after {
+        border-top-color: #3c3c3c !important;
+    }
+
+
+
+
+.userbutton {
+    width: 35px !important;
+    padding: 5px 5px 5px 5px !important;
+}
+
+    .userbutton .fa {
+        font-size: 16px !important;
+    }
+
+.fa {
+    padding-right: unset !important;
+}
+
+
+.btn-red {
+    background-color: #d52b3a !important;
+    border-color: #d52b3a !important;
+}
+
+.btn-red {
+    background-color: #d52b3a !important;
+    border-color: #d52b3a !important;
+}
+
+    .btn-red:hover {
+        background-color: #c81111 !important;
+        border-color: #c81111 !important;
+    }
+
+.btn-related {
+    background-color: #5bb75b !important;
+    border-color: #5bb75b !important;
+}
+
+    .btn-related:hover {
+        background-color: #469446 !important;
+        border-color: #469446 !important;
+    }
+
+.btn-image {
+    background-color: #DDDDDD !important;
+    border-color: #DDDDDD !important;
+}
+
+    .btn-image:hover {
+        background-color: #bdbdbd !important;
+        border-color: #bdbdbd !important;
+    }
+
+    .btn-image .fa {
+        color: #000 !important;
+    }
+
+.btn-variant {
+    background-color: #00a4d2 !important;
+    border-color: #00a4d2 !important;
+}
+
+
+    .btn-variant:hover {
+        background-color: #018cb3 !important;
+        border-color: #018cb3 !important;
+    }
+
+    .btn-variant .fa {
+        color: #FFF;
+    }
+
+.btn-variant-detail {
+    background-color: #01bef3 !important;
+    border-color: #01bef3 !important;
+}
+
+    .btn-variant-detail:hover {
+        background-color: #00a2d0 !important;
+        border-color: #00a2d0 !important;
+    }
+
+    .btn-variant-detail .fa {
+        color: #FFF;
+    }
+
+.btn-toprow {
+    background-color: #6ab5e2 !important;
+    border-color: #6ab5e2 !important;
+}
+
+    .btn-toprow:hover {
+        background-color: #0285c3 !important;
+        border-color: #0285c3 !important;
+    }
+
+    .btn-toprow .fa {
+        color: #FFF !important;
+    }
+
+.btn-toprow-active {
+    background-color: #0070a6 !important;
+    border-color: #0070a6 !important;
+}
+
+    .btn-toprow-active:hover {
+        background-color: #00a2d0 !important;
+        border-color: #00a2d0 !important;
+    }
+
+.btn-report {
+    background-color: #0070a6 !important;
+    border-color: #0070a6 !important;
+}
+
+    .btn-report:hover {
+        background-color: #0285c3 !important;
+        border-color: #0285c3 !important;
+    }
+
+    .btn-report .fa {
+        color: #FFF !important;
+    }
+
+.btn-edit {
+    background-color: #363636 !important;
+    border-color: #363636 !important;
+}
+
+    .btn-edit:hover {
+        background-color: #656565 !important;
+        border-color: #656565 !important;
+    }
+
+    .btn-edit .fa {
+        color: #FFF !important;
+    }
+
+
+.categorypop {
+    cursor: default;
+}
+
+.alignflex {
+    display: flex;
+}
+
+.white {
+    color: white !important;
+}
+
+.width10 {
+    width: 10%;
+}
+
+.width20 {
+    width: 20%;
+}
+
+.width30 {
+    width: 30%;
+}
+
+.width40 {
+    width: 40%;
+}
+
+.width50 {
+    width: 50%;
+}
+
+.width60 {
+    width: 60%;
+}
+
+.width70 {
+    width: 70%;
+}
+
+.width80 {
+    width: 80%;
+}
+
+.width90 {
+    width: 90%;
+}
+
+.width100 {
+    width: 100%;
+}
+
+.taksitcss {
+    width: 120px;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px #CCC solid;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.taksitaralik {
+    border: 1px #CCC solid;
+    border-radius: 2px;
+    padding: 2px;
+}
+
+
+
+.UserList {
+    padding: 5px;
+    background: #e8e8e8;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.btn-outline {
+    color: inherit;
+    background-color: transparent;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+
+.btn-success.btn-outline {
+    color: #5cb85c;
+}
+
+.btn-info.btn-outline {
+    color: #5bc0de;
+}
+
+.btn-warning.btn-outline {
+    color: #f0ad4e;
+}
+
+.btn-danger.btn-outline {
+    color: #d9534f;
+}
+
+    .btn-primary.btn-outline:hover,
+    .btn-success.btn-outline:hover,
+    .btn-info.btn-outline:hover,
+    .btn-warning.btn-outline:hover,
+    .btn-danger.btn-outline:hover {
+        color: white;
+    }
+
+
+
+.panel-green {
+    border-color: #5cb85c;
+}
+
+    .panel-green .panel-heading {
+        border-color: #5cb85c;
+        color: white;
+        background-color: #5cb85c;
+    }
+
+    .panel-green a {
+        color: #5cb85c;
+    }
+
+        .panel-green a:hover {
+            color: #3d8b3d;
+        }
+
+
+
+
+.panel-red {
+    border-color: #d9534f;
+}
+
+    .panel-red .panel-heading {
+        border-color: #d9534f;
+        color: white;
+        background-color: #d9534f;
+    }
+
+.panel-primary a {
+    color: #00b8ce;
+}
+
+    .panel-primary a:hover {
+        color: #00a7bb;
+    }
+
+.panel-red a {
+    color: #d9534f;
+}
+
+    .panel-red a:hover {
+        color: #b52b27;
+    }
+
+.panel-yellow {
+    border-color: #f0ad4e;
+}
+
+    .panel-yellow .panel-heading {
+        border-color: #f0ad4e;
+        color: white;
+        background-color: #f0ad4e;
+    }
+
+    .panel-yellow a {
+        color: #f0ad4e;
+    }
+
+        .panel-yellow a:hover {
+            color: #df8a13;
+        }
+
+
+
+.panel-furkan {
+    border-color: purple;
+}
+
+    .panel-furkan .panel-heading {
+        border-color: purple;
+        color: white;
+        background-color: purple;
+    }
+
+    .panel-furkan a {
+        color: purple;
+    }
+
+        .panel-furkan a:hover {
+            color: darkcyan;
+        }
+
+
+
+
+
+.panel-primary4 {
+    border-color: #0165d0;
+}
+
+    .panel-primary4 .panel-heading {
+        border-color: #0165d0;
+        color: white;
+        background-color: #0165d0;
+    }
+
+    .panel-primary4 a {
+        color: #0165d0;
+    }
+
+        .panel-primary4 a:hover {
+            color: #0165d0;
+        }
+
+    .panel-primary4 a {
+        color: #0165d0;
+    }
+
+        .panel-primary4 a:hover {
+            color: #0165d0;
+        }
+
+
+.panel-primary5 {
+    border-color: #218838;
+}
+
+    .panel-primary5 .panel-heading {
+        border-color: #218838;
+        color: white;
+        background-color: #218838;
+    }
+
+    .panel-primary5 a {
+        color: #218838;
+    }
+
+        .panel-primary5 a:hover {
+            color: #218838;
+        }
+
+    .panel-primary5 a {
+        color: #218838;
+    }
+
+        .panel-primary5 a:hover {
+            color: #218838;
+        }
+
+.panel-primary6 {
+    border-color: #f9a100;
+}
+
+    .panel-primary6 .panel-heading {
+        border-color: #f9a100;
+        color: white;
+        background-color: #f9a100;
+    }
+
+    .panel-primary6 a {
+        color: #f9a100;
+    }
+
+        .panel-primary6 a:hover {
+            color: #f9a100;
+        }
+
+    .panel-primary6 a {
+        color: #f9a100;
+    }
+
+        .panel-primary6 a:hover {
+            color: #f9a100;
+        }
+
+.panel-primary7 {
+    border-color: #e71d37;
+}
+
+    .panel-primary7 .panel-heading {
+        border-color: #e71d37;
+        color: white;
+        background-color: #e71d37;
+    }
+
+    .panel-primary7 a {
+        color: #e71d37;
+    }
+
+        .panel-primary7 a:hover {
+            color: #e71d37;
+        }
+
+    .panel-primary7 a {
+        color: #e71d37;
+    }
+
+        .panel-primary7 a:hover {
+            color: #e71d37;
+        }
+
+.datecss {
+    display: flex;
+    width: 100%;
+}
+
+.datewidth {
+    width: 32%;
+}
+
+.widthenddate {
+    width: 105px;
+    vertical-align: text-top;
+}
+
+@media screen and (max-width: 768px) {
+    .width40 {
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 992px) {
+    .datecss {
+        display: block;
+    }
+
+    .datewidth {
+        width: 100%;
+        margin-left: 0px !important;
+    }
+}
+
+@media screen and (min-width: 993px) and (max-width:2014px) {
+    .datecss {
+        display: flex;
+    }
+}
+
+/***N11****/
+
+.quantity_1 {
+    margin-right: 13%;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.quantity_2 {
+    font-weight: 600;
+    margin-left: 5px;
+}

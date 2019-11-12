@@ -1,0 +1,195 @@
+﻿
+@{
+    ViewBag.Title = "Müşteri Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Main header -->
+<div class="main-header row gray-bg">
+    <div class="col-sm-6 col-xs-7">
+
+        <!-- User info -->
+        <ul class="user-info pull-left">
+            <li class="profile-info dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"> <img width="44" class="img-circle avatar" alt="" src="images/man-3.jpg">Hoşgeldiniz - @Session["UserName"] <span class="caret"></span></a>
+
+                <!-- User action menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="@Url.Action("Logout","Home")"><i class="icon-logout"></i>Çıkış Yap</a></li>
+                </ul>
+                <!-- /user action menu -->
+
+            </li>
+        </ul>
+        <!-- /user info -->
+
+    </div>
+
+</div>
+<!-- /main header -->
+
+<div class="row">
+    <div class="col-lg-12 animatedParent animateOnce z-index-50">
+        <div class="panel panel-default animated fadeInUp go">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title">MÜŞTERİ EKLE</h3>
+                <ul class="panel-tool-options">
+                    <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+                    <li><a data-rel="reload" href="#"><i class="fa fa-refresh"></i></a></li>
+                    <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                <form action="@Url.Action("AddCustomer","Home")" method="post">
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">İsim :</label>
+                        <div class="col-sm-12">
+                            <input class="form-control" required type="text" name="Name" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Soyisim : </label>
+                        <div class="col-sm-12">
+                            <input class="form-control" required type="text" name="Surname" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Ünvan  : </label>
+                        <div class="col-sm-12">
+                            <input class="form-control" required type="text" name="Title" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Cinsiyet :</label>
+                        <div class="col-sm-12">
+                            <select class="form-control" id="Gender" name="Gender">
+                                <option>Kadın</option>
+                                <option>Erkek</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Tarih :</label>
+                        <div class="col-sm-12">
+                            <input class="form-control" required type="date" name="DateOfBirth" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">TC No  : </label>
+                        <div class="col-sm-12">
+                            <input class="form-control" required maxlength="11" type="number" name="TCNo" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Vergi No  : </label>
+                        <div class="col-sm-12">
+                            <input class="form-control" required type="text" name="TaxNo" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Vergi Dairesi  : </label>
+                        <div class="col-sm-12">
+                            <input class="form-control" required type="text" name="TaxAdministration" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Şehir :</label>
+                        <div class="col-sm-12">
+                            <select class="form-control" required id="City" name="City">
+                                <option value="0">Seçiniz</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">İlçe :</label>
+                        <div class="col-sm-12">
+                            <select class="form-control" required id="Town" name="Town">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Adres  : </label>
+                        <div class="col-sm-12">
+                            <input class="form-control" required type="text" name="Address" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Ev Telefonu  : </label>
+                        <div class="col-sm-12">
+                            <input class="form-control" required data-mask="(999) 999-9999" type="text" name="HomePhone" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">İş Telefonu  : </label>
+                        <div class="col-sm-12">
+                            <input class="form-control" required data-mask="(999) 999-9999" type="text" name="BusinessPhone" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Cep Telefonu  : </label>
+                        <div class="col-sm-12">
+                            <input class="form-control" required data-mask="(999) 999-9999" type="text" name="CepPhone" />
+                        </div>
+                    </div>
+
+                    <center><button class="btn btn-primary" type="submit">KAYDET</button></center>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+
+    <script src="~/Content/js/plugins/jasny/jasny-bootstrap.min.js"></script>
+    <script>
+       $(document).ready(function () {
+            $.ajax({
+                    type: "post",
+                    url: '@Url.Action("getCity", "Home")',
+                success: function (data) {
+                    $.each(data, function (data, value) {
+                        $('#City').append($('<option/>', {
+                            value: value.ID,
+                            text: value.CityName
+                        }));
+                    });
+                    }
+            });
+
+            $('#City').change(function () {
+                $.ajax({
+                    type: "post",
+                    url: '@Url.Action("getTown", "Home")',
+                    data: { ID: this.value },
+                    success: function (data) {
+                        $('#Town').empty()
+                        $.each(data, function (data, value) {
+                            $('#Town').append($('<option/>', {
+                                value: value.ID,
+                                text: value.TownName
+                            }));
+                        });
+                    }
+                });
+            });
+
+
+        });
+    </script>
+}

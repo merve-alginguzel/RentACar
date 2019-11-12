@@ -1,0 +1,9 @@
+C:\Users\merve\source\repos\RentACar\DataConnection\bin\Debug\DataConnection.dll
+C:\Users\merve\source\repos\RentACar\DataConnection\bin\Debug\DataConnection.pdb
+C:\Users\merve\source\repos\RentACar\DataConnection\bin\Debug\System.Data.SqlClient.dll
+C:\Users\merve\source\repos\RentACar\DataConnection\bin\Debug\System.Data.SqlClient.xml
+C:\Users\merve\source\repos\RentACar\DataConnection\obj\Debug\DataConnection.csprojAssemblyReference.cache
+C:\Users\merve\source\repos\RentACar\DataConnection\obj\Debug\DataConnection.csproj.CoreCompileInputs.cache
+C:\Users\merve\source\repos\RentACar\DataConnection\obj\Debug\DataConnection.csproj.CopyComplete
+C:\Users\merve\source\repos\RentACar\DataConnection\obj\Debug\DataConnection.dll
+C:\Users\merve\source\repos\RentACar\DataConnection\obj\Debug\DataConnection.pdb

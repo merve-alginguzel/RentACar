@@ -1,0 +1,88 @@
+﻿@model IEnumerable<DataModel.ReservationDM>
+@{
+    ViewBag.Title = "Rezervasyon Detayı";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="main-container">
+
+    <!-- Main header -->
+    <div class="main-header row gray-bg">
+        <div class="col-sm-6 col-xs-7">
+
+            <!-- User info -->
+            <ul class="user-info pull-left">
+                <li class="profile-info dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"> <img width="44" class="img-circle avatar" alt="" src="images/man-3.jpg">Hoşgeldiniz - @Session["UserName"] <span class="caret"></span></a>
+
+                    <!-- User action menu -->
+                    <ul class="dropdown-menu">
+                        <li><a href="@Url.Action("Logout","Home")"><i class="icon-logout"></i>Çıkış Yap</a></li>
+                    </ul>
+                    <!-- /user action menu -->
+
+                </li>
+            </ul>
+            <!-- /user info -->
+
+        </div>
+
+    </div>
+    <!-- /main header -->
+    <!-- Main content -->
+    <div class="main-content">
+
+        <div class="animatedParent animateOnce z-index-50">
+            <div class="table-responsive animated fadeInUp">
+                <table class="table table-users table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>REZERVASYON TARİHİ</th>
+                            <th>REZERVASYON BİTİŞ TARİHİ</th>
+                            <th>REZERVASYON TUTARI</th>
+                            <th>MÜŞTERİ İSİM</th>
+                            <th>MÜŞTERİ SOYİSİM</th>
+                            <th>MÜŞTERİ TELEFON</th>
+                            <th>PLAKA</th>
+                            <th>ŞASİ NUMARASI</th>
+                            <th>MARKA</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td><strong>@item.ID</strong></td>
+                                <td>@String.Format("{0:dd/MM/yyyy}", item.Date)</td>
+                                <td>@String.Format("{0:dd/MM/yyyy}", item.EndDate)</td>
+                                <td>@item.Amount</td>
+                                <td>@item.CustomerName</td>
+                                <td>@item.CustomerSurname</td>
+                                <td>@item.CustomerPhone</td>
+                                <td>@item.LicensePlate</td>
+                                <td>@item.ChassisNumber</td>
+                                <td>@item.Marka</td>
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="animatedParent animateOnce z-index-10">
+            <div class="footer-main animated fadeInUp slow">&copy; 2019 <strong>Rent A Car</strong> </div>
+        </footer>
+        <!-- /footer -->
+
+    </div>
+    <!-- /main content -->
+
+</div>
+
+

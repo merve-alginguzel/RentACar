@@ -1,0 +1,195 @@
+﻿
+@{
+              
+
+                ViewBag.Title = "Araç Ekle";
+                Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Main header -->
+<div class="main-header row gray-bg">
+    <div class="col-sm-6 col-xs-7">
+
+        <!-- User info -->
+        <ul class="user-info pull-left">
+            <li class="profile-info dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"> <img width="44" class="img-circle avatar" alt="" src="images/man-3.jpg">Hoşgeldiniz - @Session["UserName"] <span class="caret"></span></a>
+
+                <!-- User action menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="@Url.Action("Logout","Home")"><i class="icon-logout"></i>Çıkış Yap</a></li>
+                </ul>
+                <!-- /user action menu -->
+
+            </li>
+        </ul>
+        <!-- /user info -->
+
+    </div>
+
+</div>
+<!-- /main header -->
+
+<div class="row">
+    <div class="col-lg-12 animatedParent animateOnce z-index-50">
+        <div class="panel panel-default animated fadeInUp go">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title">ARAÇ EKLE</h3>
+                <ul class="panel-tool-options">
+                    <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+                    <li><a data-rel="reload" href="#"><i class="fa fa-refresh"></i></a></li>
+                    <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                <form action="@Url.Action("CarRecord","Home")" method="post">
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Marka :</label>
+                        <div class="col-sm-12">
+                            <select class="form-control" required id="brand" name="brand">
+                                <option>Seçiniz</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Model :</label>
+                        <div class="col-sm-12">
+                            <select class="form-control" required id="model" name="model">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Yıl :</label>
+                        <div class="col-sm-12">
+                            <select class="form-control" required name="model_year">
+                                @for (int i = 2020; i > 2000; i--)
+                                {
+                                    <option value="@i">@i</option>
+
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Uygunluk :</label>
+                        <div class="col-sm-12">
+                            <select class="form-control" required id="status" name="status">
+                                <option value="Uygun">Uygun</option>
+                                <option value="Kiralanmış">Kiralanmış</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Plaka :</label>
+                        <div class="col-sm-12">
+                            <input class="form-control" required type="text" name="licensePlate" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Şasi No :</label>
+                        <div class="col-sm-12">
+                            <input class="form-control" required type="text" name="chassisNumber" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Renk :</label>
+                        <div class="col-sm-12">
+                            <select class="form-control" required name="color">
+                                <option value="Siyah">Siyah</option>
+                                <option value="Beyaz">Beyaz</option>
+                                <option value="Bordo">Bordo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Tip  :</label>
+                        <div class="col-sm-12">
+                            <select class="form-control" required name="type">
+                                <option value="Sedan">Sedan</option>
+                                <option value="Jip">Jip</option>
+                                <option value="SUV">SUV</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Ücret :</label>
+                        <div class="col-sm-12">
+                            <input class="form-control" required type="text" name="amount" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Ücret Tipi  :</label>
+                        <div class="col-sm-12">
+                            <select class="form-control" required name="amountType">
+                                <option value="TL">TL</option>
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                            </select>
+                        </div>
+                    </div>
+                    <center><button class="btn btn-primary" type="submit">KAYDET</button></center>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+
+    <script>
+        $(document).ready(function () {
+
+       $(document).ready(function () {
+            $.ajax({
+                    type: "post",
+                    url: '@Url.Action("getBrands", "Home")',
+                success: function (data) {
+                    $.each(data, function (data, value) {
+                        console.log(value);
+                        $('#brand').append($('<option/>', {
+                            value: value.ID,
+                            text: value.BrandName
+                        }));
+                    });
+                    }
+            });
+
+            $('#brand').change(function () {
+                console.log(this);
+                console.log(this.value);
+                $.ajax({
+                    type: "post",
+                    url: '@Url.Action("GetModel", "Home")',
+                    data: { ID: this.value },
+                    success: function (data) {
+                        $('#model').empty()
+                        $.each(data, function (data, value) {
+                            console.log(value);
+                            $('#model').append($('<option/>', {
+                                value: value.ID,
+                                text: value.ModelName
+                            }));
+                        });
+                    }
+                });
+            });
+
+
+        });
+
+
+        });
+    </script>
+}

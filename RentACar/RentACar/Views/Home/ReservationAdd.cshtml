@@ -1,0 +1,159 @@
+﻿
+@{
+    ViewBag.Title = "Rezervasyon Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Main header -->
+<div class="main-header row gray-bg">
+    <div class="col-sm-6 col-xs-7">
+
+        <!-- User info -->
+        <ul class="user-info pull-left">
+            <li class="profile-info dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"> <img width="44" class="img-circle avatar" alt="" src="images/man-3.jpg">Hoşgeldiniz - @Session["UserName"] <span class="caret"></span></a>
+
+                <!-- User action menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="@Url.Action("Logout","Home")"><i class="icon-logout"></i>Çıkış Yap</a></li>
+                </ul>
+                <!-- /user action menu -->
+
+            </li>
+        </ul>
+        <!-- /user info -->
+
+    </div>
+
+</div>
+<!-- /main header -->
+
+
+<div class="row">
+    <div class="col-lg-12 animatedParent animateOnce z-index-50">
+        <div class="panel panel-default animated fadeInUp go">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title">REZERVASYON EKLE</h3>
+                <ul class="panel-tool-options">
+                    <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+                    <li><a data-rel="reload" href="#"><i class="fa fa-refresh"></i></a></li>
+                    <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                <form action="@Url.Action("AddReservation","Home")" method="post">
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Rezervasyon Tarihi :</label>
+                        <div class="col-sm-12">
+                            <input class="form-control" required id="StartDate" type="date" name="Date" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Rezervasyon Süresi (Gün) :</label>
+                        <div class="col-sm-12">
+                            <input class="form-control" required type="text" name="Day" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Rezervasyon Bitiş Tarihi :</label>
+                        <div class="col-sm-12">
+                            <input class="form-control" required id="EndDate" type="date" name="EndDate" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Fiyat :</label>
+                        <div class="col-sm-12">
+                            <input class="form-control" required type="text" name="Amount" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Rezervasyon Yapan Müşteri :</label>
+                        <div class="col-sm-12">
+                            <select class="form-control" required id="Customer" name="Customer">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">Rezervasyon Yapılan Araç :</label>
+                        <div class="col-sm-12">
+                            <select class="form-control" required id="Car" name="Car">
+                            </select>
+                        </div>
+                    </div>
+
+                    <center><button class="btn btn-primary" type="submit">KAYDET</button></center>
+                    <div id="ErrorText"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+
+    <script>
+        $(document).ready(function () {
+
+
+
+            GetCustomer();
+            GetCar();
+
+            function GetCustomer() {
+                $.ajax({
+                    type: "post",
+                    url: '@Url.Action("getCustomer", "Home")',
+                    success: function (data) {
+                        $.each(data, function (data, value) {
+                            $('#Customer').append($('<option/>', {
+                                value: value.ID,
+                                text: value.Name + " " + value.Surname
+                            }));
+                        });
+                    }
+                });
+            }
+
+
+            function GetCar() {
+                $.ajax({
+                    type: "post",
+                    url: '@Url.Action("getCar", "Home")',
+                    data: { ID: this.value },
+                    success: function (data) {
+                        $.each(data, function (data, value) {
+                            $('#Car').append($('<option/>', {
+                                value: value.ID,
+                                text: value.brand + "  " + value.model + " ( " + value.licensePlate + " )" 
+                            }));
+                        });
+                    }
+                });
+            }
+
+            $('#Car').change(function () {
+                $.ajax({
+                    type: "post",
+                    url: '@Url.Action("getStatusControl", "Home")',
+                    data: { ID: this.value, StartDate: $("#StartDate").val(), EndDate:$("#EndDate").val() },
+                    success: function (data) {
+                        console.log(data);
+                        $("#ErrorText").html("");
+                        if (data[0].status == "Kiralanmış") {
+                            $("#Kaydet").attr("disabled", "disabled");
+                            $("#ErrorText").html("<div class=\"alert alert-danger\">Bu tarihler arasında bu araç uygun değildir.</div>");
+                        }
+                    }
+                });
+            });
+
+
+
+        });
+    </script>
+}

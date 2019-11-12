@@ -1,0 +1,27 @@
+﻿.siparisdetay1 td {
+    padding: 3px !important;
+    font-size: 12px !important;
+    border: solid #ccc 1px;
+}
+
+.resimler {
+    border: solid #ccc 1px;
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin: 5px;
+}
+
+    .resimler:hover {
+        border: dashed red 1px;
+    }
+
+    .resimler img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .resimler .link {
+        padding-top: 10px;
+        text-align: center;
+    }
